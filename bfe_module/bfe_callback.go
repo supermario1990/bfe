@@ -66,6 +66,7 @@ func CallbackPointName(point int) string {
 	}
 }
 
+// BfeCallbacks 会在每个模块init方法里往callbacks里添加对应的handler
 type BfeCallbacks struct {
 	callbacks map[int]*HandlerList
 }

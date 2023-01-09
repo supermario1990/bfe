@@ -331,6 +331,7 @@ func (c *conn) serve() {
 			session.SetError(bfe_basic.ErrClientTlsHandshake, err.Error())
 			return
 		}
+		// 不超时
 		c.rwc.SetReadDeadline(time.Time{})
 		tlsState := tlsConn.ConnectionState()
 		c.session.TlsState = &tlsState

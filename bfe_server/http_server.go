@@ -61,11 +61,11 @@ func (srv *BfeServer) ServeHttps(ln *HttpsListener) error {
 // then call srv.Handler to reply to them.
 //
 // Params
-//     - l  : net listener
-//     - raw: underlying tcp listener (different from `l` in HTTPS)
+//   - l  : net listener
+//   - raw: underlying tcp listener (different from `l` in HTTPS)
 //
 // Return
-//     - err: error
+//   - err: error
 func (srv *BfeServer) Serve(l net.Listener, raw net.Listener, proto string) error {
 	var tempDelay time.Duration // how long to sleep on accept failure
 	proxyState := srv.serverStatus.ProxyState
@@ -90,6 +90,7 @@ func (srv *BfeServer) Serve(l net.Listener, raw net.Listener, proto string) erro
 
 			// if in GraceShutdown state, exit accept loop after timeout
 			if srv.CheckGracefulShutdown() {
+				// TODO: 这里为什么要sleep？
 				shutdownTimeout := srv.Config.Server.GracefulShutdownTimeout
 				time.Sleep(time.Duration(shutdownTimeout) * time.Second)
 			}

@@ -80,6 +80,7 @@ func StartUp(cfg bfe_conf.BfeConfig, version string, confRoot string) error {
 	log.Logger.Info("StartUp():bfeServer.InitModules() OK")
 
 	// load plugins
+	// 加载 go plugin, 从配置文件来看，没有看到相关介绍，估计已经不推荐使用
 	if err = bfeServer.LoadPlugins(cfg.Server.Plugins); err != nil {
 		log.Logger.Error("StartUp():bfeServer.LoadPlugins():%s", err.Error())
 		return err
