@@ -15,7 +15,6 @@
 .svn
 .tmp
 .download
-output
 .*.swp
 .*.swo
 /**/y.output
