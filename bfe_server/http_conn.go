@@ -275,6 +275,7 @@ func (c *conn) serve() {
 	var hl *bfe_module.HandlerList
 	var retVal int
 	session := c.session
+	// c.server.connWaitGroup 作用是在关闭服务时，保证所有的连接都结束
 	c.server.connWaitGroup.Add(1)
 	serverStatus := c.server.serverStatus
 	proxyState := serverStatus.ProxyState
