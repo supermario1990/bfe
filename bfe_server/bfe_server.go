@@ -171,6 +171,7 @@ func (srv *BfeServer) InitConfig() {
 }
 
 func (srv *BfeServer) InitHttp() (err error) {
+	// 设置不去掉cookie中不安全字符，sanitize 使无害
 	// disable cookie value sanitize
 	bfe_http.SetDisableSanitize(true)
 

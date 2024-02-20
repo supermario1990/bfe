@@ -46,6 +46,7 @@ func StartUp(cfg bfe_conf.BfeConfig, version string, confRoot string) error {
 		return err
 	}
 
+	// 加载配置文件
 	// load data
 	if err = bfeServer.InitDataLoad(); err != nil {
 		log.Logger.Error("StartUp(): bfeServer.InitDataLoad():%s",
@@ -54,6 +55,7 @@ func StartUp(cfg bfe_conf.BfeConfig, version string, confRoot string) error {
 	}
 	log.Logger.Info("StartUp(): bfeServer.InitDataLoad() OK")
 
+	// 初始化信号处理函数
 	// setup signal table
 	bfeServer.InitSignalTable()
 	log.Logger.Info("StartUp():bfeServer.InitSignalTable() OK")
